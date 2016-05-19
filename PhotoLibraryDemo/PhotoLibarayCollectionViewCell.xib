@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoLibarayCollectionViewCell" id="gTV-IL-0wX" customClass="PhotoLibarayCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKg-cI-WS9">
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYU-Zt-TEO">
+                        <rect key="frame" x="80" y="0.0" width="30" height="30"/>
+                        <state key="normal" image="unSelected.png"/>
+                        <state key="selected" image="selected.png"/>
+                        <connections>
+                            <action selector="selectButtonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="li8-PS-Ugs"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <connections>
+                <outlet property="imgV" destination="XKg-cI-WS9" id="Oyx-tL-B4v"/>
+                <outlet property="selectButton" destination="VYU-Zt-TEO" id="e20-9M-FrO"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="selected.png" width="16" height="16"/>
+        <image name="unSelected.png" width="16" height="16"/>
+    </resources>
+</document>
