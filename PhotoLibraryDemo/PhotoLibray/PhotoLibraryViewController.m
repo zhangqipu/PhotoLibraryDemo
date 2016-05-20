@@ -9,15 +9,22 @@
 #import "PhotoLibraryViewController.h"
 #import "PhotoLibarayCollectionViewCell.h"
 #import "SelectedCollectionViewCell.h"
+#import "CameraCollectionViewCell.h"
 
 #import "PhotoLookViewController.h"
 #import "AssetsGroupMenu.h"
 
+// 每个相片大小
 #define kItemSize ((CGRectGetWidth(self.view.frame) - 4 * 5) / 3)
+// 相册选中菜单高度
 #define kMenuHeight (CGRectGetHeight(self.view.frame) - 64 - 56)
 
 @interface PhotoLibraryViewController ()
-<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+<UICollectionViewDelegate,
+UICollectionViewDataSource,
+UICollectionViewDelegateFlowLayout,
+UIImagePickerControllerDelegate,
+UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *upperCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *downCollectionView;
@@ -30,6 +37,7 @@
 @property (strong, nonatomic) NSMutableArray *assetsGroups;
 @property (strong, nonatomic) NSMutableArray *assets;
 @property (strong, nonatomic) NSMutableArray *selectedAssets;
+@property (strong, nonnull) ALAssetsGroup *defaultGroup;
 
 @end
 
@@ -113,8 +121,10 @@
     UINib *nib = [UINib nibWithNibName:@"PhotoLibarayCollectionViewCell" bundle:bundle];
     
     [_upperCollectionView registerNib:nib forCellWithReuseIdentifier:@"PhotoLibarayCollectionViewCell"];
+    nib = [UINib nibWithNibName:@"CameraCollectionViewCell" bundle:bundle];
+    [_upperCollectionView registerNib:nib forCellWithReuseIdentifier:@"CameraCollectionViewCell"];
     [_upperCollectionView setAllowsMultipleSelection:YES];
-    
+
     nib = [UINib nibWithNibName:@"SelectedCollectionViewCell" bundle:bundle];
     [_downCollectionView registerNib:nib forCellWithReuseIdentifier:@"SelectedCollectionViewCell"];
 
@@ -135,6 +145,7 @@
             [_assetsGroups addObject:group];
             
             if ([[group valueForProperty:ALAssetsGroupPropertyName] isEqualToString:@"Camera Roll"]) {
+                _defaultGroup = group;
                 [self configDataSource:group];
             }
         }
@@ -152,7 +163,7 @@
     if (_assetsGroups.count > 0 == NO) return ;
     
     // 遍历相册中所有照片
-    ALAssetsGroup *group = assetsGroup ? assetsGroup : _assetsGroups[0];
+    ALAssetsGroup *group = assetsGroup ? assetsGroup : _defaultGroup;
     
     NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
     [_titleViewButton setTitle:groupName forState:UIControlStateNormal];
@@ -162,6 +173,10 @@
     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
         if (result == nil) {
             *stop = YES;
+            
+            // 添加拍照collectionViewCell数据源
+            [_assets insertObject:@"iconCamera" atIndex:0];
+            
             [_upperCollectionView reloadData];
             [_downCollectionView reloadData];
             [_finishButton setTitle:[NSString stringWithFormat:@"完成(%lu)", (unsigned long)_selectedAssets.count] forState:UIControlStateNormal];
@@ -192,6 +207,14 @@
     
     if (collectionView == _upperCollectionView) {
     
+        // 拍照cell
+        if (indexPath.row == 0) {
+            CameraCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CameraCollectionViewCell" forIndexPath:indexPath];
+            cell.imgV.image = [UIImage imageNamed:@"iconCamera"];
+            
+            return cell;
+        }
+        
         PhotoLibarayCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoLibarayCollectionViewCell" forIndexPath:indexPath];
         
         cell.indexPath = indexPath;
@@ -232,6 +255,15 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.row == 0) {
+        UIImagePickerController *pickerVC = [[UIImagePickerController alloc] init];
+        pickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+        pickerVC.delegate = self;
+        [self presentViewController:pickerVC animated:YES completion:nil];
+        return ;
+    }
+    
     PhotoLookViewController *vc = [[PhotoLookViewController alloc] init];
     vc.assets = _assets;
     vc.selectedAssets = _selectedAssets;
@@ -257,6 +289,18 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 5;
+}
+
+#pragma mark - UIImagePickerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImageWriteToSavedPhotosAlbum(img, NULL, NULL, NULL);
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self configDataSource:_defaultGroup];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    });
 }
 
 /**

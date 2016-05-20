@@ -18,6 +18,8 @@
 		E88CF4BE1CEEF80E00D0667A /* PhotoLookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E88CF4B21CEEF80E00D0667A /* PhotoLookViewController.xib */; };
 		E88CF4BF1CEEF80E00D0667A /* SelectedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E88CF4B41CEEF80E00D0667A /* SelectedCollectionViewCell.m */; };
 		E88CF4C01CEEF80E00D0667A /* SelectedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E88CF4B51CEEF80E00D0667A /* SelectedCollectionViewCell.xib */; };
+		E88CF4C71CEF122E00D0667A /* CameraCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E88CF4C51CEF122E00D0667A /* CameraCollectionViewCell.m */; };
+		E88CF4C81CEF122E00D0667A /* CameraCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E88CF4C61CEF122E00D0667A /* CameraCollectionViewCell.xib */; };
 		E8DC64201CED964F00AE12EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DC641F1CED964F00AE12EA /* main.m */; };
 		E8DC64231CED964F00AE12EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DC64221CED964F00AE12EA /* AppDelegate.m */; };
 		E8DC64261CED964F00AE12EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DC64251CED964F00AE12EA /* ViewController.m */; };
@@ -43,6 +45,9 @@
 		E88CF4B31CEEF80E00D0667A /* SelectedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCollectionViewCell.h; sourceTree = "<group>"; };
 		E88CF4B41CEEF80E00D0667A /* SelectedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCollectionViewCell.m; sourceTree = "<group>"; };
 		E88CF4B51CEEF80E00D0667A /* SelectedCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedCollectionViewCell.xib; sourceTree = "<group>"; };
+		E88CF4C41CEF122E00D0667A /* CameraCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraCollectionViewCell.h; sourceTree = "<group>"; };
+		E88CF4C51CEF122E00D0667A /* CameraCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraCollectionViewCell.m; sourceTree = "<group>"; };
+		E88CF4C61CEF122E00D0667A /* CameraCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraCollectionViewCell.xib; sourceTree = "<group>"; };
 		E8DC641B1CED964F00AE12EA /* PhotoLibraryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoLibraryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DC641F1CED964F00AE12EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E8DC64211CED964F00AE12EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -79,6 +84,9 @@
 				E88CF4AD1CEEF80E00D0667A /* PhotoLibraryViewController.h */,
 				E88CF4AE1CEEF80E00D0667A /* PhotoLibraryViewController.m */,
 				E88CF4AF1CEEF80E00D0667A /* PhotoLibraryViewController.xib */,
+				E88CF4C41CEF122E00D0667A /* CameraCollectionViewCell.h */,
+				E88CF4C51CEF122E00D0667A /* CameraCollectionViewCell.m */,
+				E88CF4C61CEF122E00D0667A /* CameraCollectionViewCell.xib */,
 				E88CF4B01CEEF80E00D0667A /* PhotoLookViewController.h */,
 				E88CF4B11CEEF80E00D0667A /* PhotoLookViewController.m */,
 				E88CF4B21CEEF80E00D0667A /* PhotoLookViewController.xib */,
@@ -196,6 +204,7 @@
 				E88CF4BC1CEEF80E00D0667A /* PhotoLibraryViewController.xib in Resources */,
 				E88CF4BA1CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.xib in Resources */,
 				E8DC64291CED964F00AE12EA /* Main.storyboard in Resources */,
+				E88CF4C81CEF122E00D0667A /* CameraCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +220,7 @@
 				E88CF4BD1CEEF80E00D0667A /* PhotoLookViewController.m in Sources */,
 				E8DC64261CED964F00AE12EA /* ViewController.m in Sources */,
 				E8DC64231CED964F00AE12EA /* AppDelegate.m in Sources */,
+				E88CF4C71CEF122E00D0667A /* CameraCollectionViewCell.m in Sources */,
 				E88CF4BB1CEEF80E00D0667A /* PhotoLibraryViewController.m in Sources */,
 				E88CF4B91CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.m in Sources */,
 				E8DC64201CED964F00AE12EA /* main.m in Sources */,

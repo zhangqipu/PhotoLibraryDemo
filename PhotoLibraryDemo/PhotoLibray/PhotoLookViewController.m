@@ -51,7 +51,7 @@
     _scrollView.pagingEnabled = YES;
     _scrollView.backgroundColor = [UIColor blackColor];
     
-    for (int i = 0; i < _assets.count; i++) {
+    for (int i = 1; i < _assets.count; i++) {
         UIImageView *imgV = [UIImageView new];
         ALAsset *asset = _assets[i];
         ALAssetRepresentation *representation = [asset defaultRepresentation];
@@ -89,6 +89,7 @@
 {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 40, 40);
+    [btn setImageEdgeInsets:UIEdgeInsetsMake(0, 20, 0, -5)];
     [btn setImage:[UIImage imageNamed:@"navUnSelected"] forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:@"navSelected"] forState:UIControlStateSelected];
     [btn addTarget:self action:@selector(rightNavItemAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -141,7 +142,7 @@
 #pragma mark - CollectionView
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-        return _selectedAssets.count;
+    return _selectedAssets.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
