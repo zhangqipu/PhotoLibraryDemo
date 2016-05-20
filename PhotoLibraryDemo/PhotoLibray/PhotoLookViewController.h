@@ -10,7 +10,11 @@
 
 @interface PhotoLookViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 // 某个一个相册中的所有图片
 @property (nonatomic, strong) NSArray *assets;
+// 某相册中被选中的图片
+@property (nonatomic, strong) NSMutableArray *selectedAssets;
+@property (assign, nonatomic) NSUInteger currentIndex;
 
 @end

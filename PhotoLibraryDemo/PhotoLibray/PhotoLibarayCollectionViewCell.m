@@ -18,7 +18,9 @@
 - (IBAction)selectButtonAction:(id)sender {
     [_selectButton setSelected:!_selectButton.isSelected];
     
-    if (_selectItemBlock) {_selectItemBlock(_selectButton.isSelected);}
+    if (_selectItemBlock) {
+        _selectItemBlock(_selectButton.isSelected, _indexPath);
+    }
 }
 
 @end

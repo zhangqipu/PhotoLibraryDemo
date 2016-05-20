@@ -13,11 +13,15 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKg-cI-WS9">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XKg-cI-WS9">
                         <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYU-Zt-TEO">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYU-Zt-TEO">
                         <rect key="frame" x="80" y="0.0" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="ASy-Gq-4pv"/>
+                            <constraint firstAttribute="width" constant="30" id="txx-rg-jrB"/>
+                        </constraints>
                         <state key="normal" image="unSelected.png"/>
                         <state key="selected" image="selected.png"/>
                         <connections>
@@ -27,6 +31,14 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="VYU-Zt-TEO" secondAttribute="trailing" id="XRb-LQ-UgG"/>
+                <constraint firstItem="XKg-cI-WS9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hYY-jd-w9M"/>
+                <constraint firstItem="XKg-cI-WS9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="j2h-DO-OnM"/>
+                <constraint firstAttribute="bottom" secondItem="XKg-cI-WS9" secondAttribute="bottom" id="pIH-9M-eH2"/>
+                <constraint firstItem="VYU-Zt-TEO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="psR-FR-rQ6"/>
+                <constraint firstAttribute="trailing" secondItem="XKg-cI-WS9" secondAttribute="trailing" id="uUr-jP-TUz"/>
+            </constraints>
             <connections>
                 <outlet property="imgV" destination="XKg-cI-WS9" id="Oyx-tL-B4v"/>
                 <outlet property="selectButton" destination="VYU-Zt-TEO" id="e20-9M-FrO"/>
@@ -34,7 +46,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="selected.png" width="16" height="16"/>
-        <image name="unSelected.png" width="16" height="16"/>
+        <image name="selected.png" width="20" height="20"/>
+        <image name="unSelected.png" width="20" height="20"/>
     </resources>
 </document>

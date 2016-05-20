@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^SelectItemBlock)(BOOL isSelected);
+typedef void(^SelectItemBlock)(BOOL isSelected, NSIndexPath *indexPath);
 
 @interface PhotoLibarayCollectionViewCell : UICollectionViewCell
 
@@ -16,5 +16,6 @@ typedef void(^SelectItemBlock)(BOOL isSelected);
 @property (weak, nonatomic) IBOutlet UIButton *selectButton;
 
 @property (copy, nonatomic) SelectItemBlock selectItemBlock;
+@property (assign, nonatomic) NSIndexPath *indexPath;
 
 @end

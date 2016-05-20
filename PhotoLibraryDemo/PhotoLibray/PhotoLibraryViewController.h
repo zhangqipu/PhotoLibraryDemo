@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+
+typedef void(^OnFinishPhotoesPickUpBlock)(NSArray *photoAssets); // 每个元素类型 ALAsset
 
 @interface PhotoLibraryViewController : UIViewController
+
+@property (copy, nonatomic) OnFinishPhotoesPickUpBlock onFinishPhotoesPickUpBlock;
 
 @end

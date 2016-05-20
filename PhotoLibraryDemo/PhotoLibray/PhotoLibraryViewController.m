@@ -11,14 +11,20 @@
 #import "SelectedCollectionViewCell.h"
 
 #import "PhotoLookViewController.h"
+#import "AssetsGroupMenu.h"
 
-#import <AssetsLibrary/AssetsLibrary.h>
+#define kItemSize ((CGRectGetWidth(self.view.frame) - 4 * 5) / 3)
+#define kMenuHeight (CGRectGetHeight(self.view.frame) - 64 - 56)
 
 @interface PhotoLibraryViewController ()
 <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *upperCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *downCollectionView;
+@property (weak, nonatomic) IBOutlet UIButton *finishButton;
+@property (strong, nonatomic) UIButton *titleViewButton;
+
+@property (strong, nonatomic) AssetsGroupMenu *assetsGroupMenu;
 
 @property (strong, nonatomic) ALAssetsLibrary *assetsLibrary;
 @property (strong, nonatomic) NSMutableArray *assetsGroups;
@@ -36,7 +42,69 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self setUpCollectionView];
+    [self setUpTitleView];
+    [self setUpAssetsGroupMenu];
     [self setUpAssetLibrary];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_upperCollectionView reloadData];
+    [_downCollectionView reloadData];
+    [_finishButton setTitle:[NSString stringWithFormat:@"完成(%lu)", (unsigned long)_selectedAssets.count] forState:UIControlStateNormal];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    _assetsGroupMenu.frame = CGRectMake(0, -kMenuHeight, CGRectGetWidth(self.view.frame), kMenuHeight);
+}
+
+- (void)setUpTitleView
+{
+    _titleViewButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _titleViewButton.frame = CGRectMake(0, 0, 180, 40);
+    [_titleViewButton setTitle:@"选择相册" forState:UIControlStateNormal];
+    [_titleViewButton setImage:[UIImage imageNamed:@"downArrow"] forState:UIControlStateNormal];
+    [_titleViewButton setImageEdgeInsets:UIEdgeInsetsMake(0, 160, 0, 0)];
+    [_titleViewButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [_titleViewButton addTarget:self action:@selector(assetsGroupSelectAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.titleView = _titleViewButton;
+}
+
+- (void)assetsGroupSelectAction
+{
+    if (CGRectGetMinY(_assetsGroupMenu.frame) != 64) {
+        [UIView animateWithDuration:0.6 animations:^{
+            _assetsGroupMenu.frame = CGRectMake(0, 64, CGRectGetWidth(_assetsGroupMenu.frame), CGRectGetHeight(_assetsGroupMenu.frame));
+        }];
+    } else {
+        [UIView animateWithDuration:0.6 animations:^{
+            _assetsGroupMenu.frame = CGRectMake(0, -CGRectGetHeight(_assetsGroupMenu.frame), CGRectGetWidth(_assetsGroupMenu.frame), CGRectGetHeight(_assetsGroupMenu.frame));
+        }];
+    }
+}
+
+- (void)setUpAssetsGroupMenu
+{
+    _assetsGroupMenu = [[[NSBundle mainBundle] loadNibNamed:@"AssetsGroupMenu" owner:self options:nil] firstObject];
+    _assetsGroupMenu.frame = CGRectZero;
+    _assetsGroupMenu.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    [self.view addSubview:_assetsGroupMenu];
+    
+    __weak id weakSelf = self;
+    AssetsGroupMenu *weakMenu = _assetsGroupMenu;
+    _assetsGroupMenu.assetsGroupItemSelectAction = ^(ALAssetsGroup *group) {
+        [weakSelf configDataSource:group];
+        [UIView animateWithDuration:0.3 animations:^{
+            weakMenu.frame = CGRectMake(0, -CGRectGetHeight(weakMenu.frame), CGRectGetWidth(weakMenu.frame), CGRectGetHeight(weakMenu.frame));
+        }];
+
+    };
+    
 }
 
 - (void)setUpCollectionView {
@@ -62,9 +130,13 @@
     [_assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         if (group == nil) {
             *stop = YES;
-            [self configDataSource];
+            [self configAssetsGroupDataSource];
         } else {
             [_assetsGroups addObject:group];
+            
+            if ([[group valueForProperty:ALAssetsGroupPropertyName] isEqualToString:@"Camera Roll"]) {
+                [self configDataSource:group];
+            }
         }
     } failureBlock:^(NSError *error) {
         
@@ -72,32 +144,38 @@
 }
 
 /**
- *  选择相册事件
- */
-- (void)selectAssetGroupAction:(id)sender {
-    [self configDataSource];
-}
-
-/**
- *  获取相册所有图片设置数据源
+ *  切换相册
  */
 
-- (void)configDataSource {
+- (void)configDataSource:(ALAssetsGroup *)assetsGroup {
     
     if (_assetsGroups.count > 0 == NO) return ;
     
     // 遍历相册中所有照片
-    ALAssetsGroup *group = _assetsGroups[0];
+    ALAssetsGroup *group = assetsGroup ? assetsGroup : _assetsGroups[0];
     
+    NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
+    [_titleViewButton setTitle:groupName forState:UIControlStateNormal];
+    
+    [_assets removeAllObjects];
+    [_selectedAssets removeAllObjects];
     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
         if (result == nil) {
             *stop = YES;
             [_upperCollectionView reloadData];
+            [_downCollectionView reloadData];
+            [_finishButton setTitle:[NSString stringWithFormat:@"完成(%lu)", (unsigned long)_selectedAssets.count] forState:UIControlStateNormal];
+
         } else {
             [_assets addObject:result];
         }
     }];
     
+}
+
+- (void)configAssetsGroupDataSource {
+    _assetsGroupMenu.assetsGroups = _assetsGroups;
+    [_assetsGroupMenu.tableView reloadData];
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -116,13 +194,18 @@
     
         PhotoLibarayCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoLibarayCollectionViewCell" forIndexPath:indexPath];
         
+        cell.indexPath = indexPath;
+        
         // 取缩略图
         ALAsset *asset = _assets[indexPath.row];
         cell.imgV.image = [UIImage imageWithCGImage:asset.thumbnail];
         
-        cell.selectItemBlock = ^(BOOL isSelected) {
+        [cell.selectButton setSelected:[_selectedAssets containsObject:_assets[indexPath.row]]];
+        
+        cell.selectItemBlock = ^(BOOL isSelected, NSIndexPath *indP) {
             if (isSelected) {
-                [_selectedAssets addObject:asset];
+                [_selectedAssets addObject:_assets[indP.row]];
+                if (_selectedAssets.count > 0)
                 [_downCollectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:_selectedAssets.count - 1 inSection:0]]];
             } else {
                 NSUInteger i = [_selectedAssets indexOfObject:asset];
@@ -132,6 +215,8 @@
             
             if (_selectedAssets.count > 0)
             [_downCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:_selectedAssets.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+            
+            [_finishButton setTitle:[NSString stringWithFormat:@"完成(%lu)", (unsigned long)_selectedAssets.count] forState:UIControlStateNormal];
         };
         
         return cell;
@@ -139,7 +224,7 @@
         SelectedCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SelectedCollectionViewCell" forIndexPath:indexPath];
         
         // 取缩略图
-        ALAsset *asset = _assets[indexPath.row];
+        ALAsset *asset = _selectedAssets[indexPath.row];
         cell.imgV.image = [UIImage imageWithCGImage:asset.thumbnail];
         
         return cell;
@@ -149,27 +234,42 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoLookViewController *vc = [[PhotoLookViewController alloc] init];
     vc.assets = _assets;
+    vc.selectedAssets = _selectedAssets;
+    vc.currentIndex = indexPath.row;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView == _upperCollectionView) {
-        return CGSizeMake(110, 110);
+        return CGSizeMake(kItemSize, kItemSize);
     } else {
         return CGSizeMake(40, 40);
     }
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(15, 15, 15, 15);
+    return UIEdgeInsetsMake(5, 5, 5, 5);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 10;
+    return 5;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 10;
+    return 5;
+}
+
+/**
+ *  完成按钮事件
+ *
+ *  @param sender
+ */
+- (IBAction)finishButtonAction:(id)sender {
+    if (_onFinishPhotoesPickUpBlock) {
+        _onFinishPhotoesPickUpBlock(_selectedAssets);
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

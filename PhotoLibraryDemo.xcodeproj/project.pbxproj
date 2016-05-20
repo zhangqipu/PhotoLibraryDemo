@@ -7,25 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E88CF4B61CEEF80E00D0667A /* AssetsGroupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E88CF4A71CEEF80E00D0667A /* AssetsGroupMenu.m */; };
+		E88CF4B71CEEF80E00D0667A /* AssetsGroupMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E88CF4A81CEEF80E00D0667A /* AssetsGroupMenu.xib */; };
+		E88CF4B81CEEF80E00D0667A /* IconAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E88CF4A91CEEF80E00D0667A /* IconAssets.xcassets */; };
+		E88CF4B91CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E88CF4AB1CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.m */; };
+		E88CF4BA1CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E88CF4AC1CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.xib */; };
+		E88CF4BB1CEEF80E00D0667A /* PhotoLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88CF4AE1CEEF80E00D0667A /* PhotoLibraryViewController.m */; };
+		E88CF4BC1CEEF80E00D0667A /* PhotoLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E88CF4AF1CEEF80E00D0667A /* PhotoLibraryViewController.xib */; };
+		E88CF4BD1CEEF80E00D0667A /* PhotoLookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88CF4B11CEEF80E00D0667A /* PhotoLookViewController.m */; };
+		E88CF4BE1CEEF80E00D0667A /* PhotoLookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E88CF4B21CEEF80E00D0667A /* PhotoLookViewController.xib */; };
+		E88CF4BF1CEEF80E00D0667A /* SelectedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E88CF4B41CEEF80E00D0667A /* SelectedCollectionViewCell.m */; };
+		E88CF4C01CEEF80E00D0667A /* SelectedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E88CF4B51CEEF80E00D0667A /* SelectedCollectionViewCell.xib */; };
 		E8DC64201CED964F00AE12EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DC641F1CED964F00AE12EA /* main.m */; };
 		E8DC64231CED964F00AE12EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DC64221CED964F00AE12EA /* AppDelegate.m */; };
 		E8DC64261CED964F00AE12EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DC64251CED964F00AE12EA /* ViewController.m */; };
 		E8DC64291CED964F00AE12EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8DC64271CED964F00AE12EA /* Main.storyboard */; };
 		E8DC642B1CED964F00AE12EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8DC642A1CED964F00AE12EA /* Assets.xcassets */; };
 		E8DC642E1CED964F00AE12EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8DC642C1CED964F00AE12EA /* LaunchScreen.storyboard */; };
-		E8DC64381CED967500AE12EA /* PhotoLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DC64361CED967500AE12EA /* PhotoLibraryViewController.m */; };
-		E8DC64391CED967500AE12EA /* PhotoLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8DC64371CED967500AE12EA /* PhotoLibraryViewController.xib */; };
-		E8DC643D1CED97DF00AE12EA /* PhotoLibarayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DC643B1CED97DF00AE12EA /* PhotoLibarayCollectionViewCell.m */; };
-		E8DC643E1CED97DF00AE12EA /* PhotoLibarayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8DC643C1CED97DF00AE12EA /* PhotoLibarayCollectionViewCell.xib */; };
-		E8DC64401CEDB07900AE12EA /* unSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DC643F1CEDB07900AE12EA /* unSelected@3x.png */; };
-		E8DC64421CEDB08500AE12EA /* selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8DC64411CEDB08500AE12EA /* selected@3x.png */; };
-		E8DC64461CEDB36900AE12EA /* PhotoLookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DC64441CEDB36900AE12EA /* PhotoLookViewController.m */; };
-		E8DC64471CEDB36900AE12EA /* PhotoLookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8DC64451CEDB36900AE12EA /* PhotoLookViewController.xib */; };
-		E8DC644B1CEDBF5100AE12EA /* SelectedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DC64491CEDBF5100AE12EA /* SelectedCollectionViewCell.m */; };
-		E8DC644C1CEDBF5100AE12EA /* SelectedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8DC644A1CEDBF5100AE12EA /* SelectedCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E88CF4A61CEEF80E00D0667A /* AssetsGroupMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsGroupMenu.h; sourceTree = "<group>"; };
+		E88CF4A71CEEF80E00D0667A /* AssetsGroupMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsGroupMenu.m; sourceTree = "<group>"; };
+		E88CF4A81CEEF80E00D0667A /* AssetsGroupMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssetsGroupMenu.xib; sourceTree = "<group>"; };
+		E88CF4A91CEEF80E00D0667A /* IconAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IconAssets.xcassets; sourceTree = "<group>"; };
+		E88CF4AA1CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoLibarayCollectionViewCell.h; sourceTree = "<group>"; };
+		E88CF4AB1CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLibarayCollectionViewCell.m; sourceTree = "<group>"; };
+		E88CF4AC1CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoLibarayCollectionViewCell.xib; sourceTree = "<group>"; };
+		E88CF4AD1CEEF80E00D0667A /* PhotoLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoLibraryViewController.h; sourceTree = "<group>"; };
+		E88CF4AE1CEEF80E00D0667A /* PhotoLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLibraryViewController.m; sourceTree = "<group>"; };
+		E88CF4AF1CEEF80E00D0667A /* PhotoLibraryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoLibraryViewController.xib; sourceTree = "<group>"; };
+		E88CF4B01CEEF80E00D0667A /* PhotoLookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoLookViewController.h; sourceTree = "<group>"; };
+		E88CF4B11CEEF80E00D0667A /* PhotoLookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLookViewController.m; sourceTree = "<group>"; };
+		E88CF4B21CEEF80E00D0667A /* PhotoLookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoLookViewController.xib; sourceTree = "<group>"; };
+		E88CF4B31CEEF80E00D0667A /* SelectedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCollectionViewCell.h; sourceTree = "<group>"; };
+		E88CF4B41CEEF80E00D0667A /* SelectedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCollectionViewCell.m; sourceTree = "<group>"; };
+		E88CF4B51CEEF80E00D0667A /* SelectedCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedCollectionViewCell.xib; sourceTree = "<group>"; };
 		E8DC641B1CED964F00AE12EA /* PhotoLibraryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoLibraryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DC641F1CED964F00AE12EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E8DC64211CED964F00AE12EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,20 +53,6 @@
 		E8DC642A1CED964F00AE12EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8DC642D1CED964F00AE12EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8DC642F1CED964F00AE12EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E8DC64351CED967500AE12EA /* PhotoLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoLibraryViewController.h; sourceTree = "<group>"; };
-		E8DC64361CED967500AE12EA /* PhotoLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLibraryViewController.m; sourceTree = "<group>"; };
-		E8DC64371CED967500AE12EA /* PhotoLibraryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoLibraryViewController.xib; sourceTree = "<group>"; };
-		E8DC643A1CED97DF00AE12EA /* PhotoLibarayCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoLibarayCollectionViewCell.h; sourceTree = "<group>"; };
-		E8DC643B1CED97DF00AE12EA /* PhotoLibarayCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLibarayCollectionViewCell.m; sourceTree = "<group>"; };
-		E8DC643C1CED97DF00AE12EA /* PhotoLibarayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoLibarayCollectionViewCell.xib; sourceTree = "<group>"; };
-		E8DC643F1CEDB07900AE12EA /* unSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unSelected@3x.png"; sourceTree = "<group>"; };
-		E8DC64411CEDB08500AE12EA /* selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selected@3x.png"; sourceTree = "<group>"; };
-		E8DC64431CEDB36900AE12EA /* PhotoLookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoLookViewController.h; sourceTree = "<group>"; };
-		E8DC64441CEDB36900AE12EA /* PhotoLookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLookViewController.m; sourceTree = "<group>"; };
-		E8DC64451CEDB36900AE12EA /* PhotoLookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoLookViewController.xib; sourceTree = "<group>"; };
-		E8DC64481CEDBF5100AE12EA /* SelectedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCollectionViewCell.h; sourceTree = "<group>"; };
-		E8DC64491CEDBF5100AE12EA /* SelectedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCollectionViewCell.m; sourceTree = "<group>"; };
-		E8DC644A1CEDBF5100AE12EA /* SelectedCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E88CF4A51CEEF80E00D0667A /* PhotoLibray */ = {
+			isa = PBXGroup;
+			children = (
+				E88CF4A61CEEF80E00D0667A /* AssetsGroupMenu.h */,
+				E88CF4A71CEEF80E00D0667A /* AssetsGroupMenu.m */,
+				E88CF4A81CEEF80E00D0667A /* AssetsGroupMenu.xib */,
+				E88CF4A91CEEF80E00D0667A /* IconAssets.xcassets */,
+				E88CF4AA1CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.h */,
+				E88CF4AB1CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.m */,
+				E88CF4AC1CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.xib */,
+				E88CF4AD1CEEF80E00D0667A /* PhotoLibraryViewController.h */,
+				E88CF4AE1CEEF80E00D0667A /* PhotoLibraryViewController.m */,
+				E88CF4AF1CEEF80E00D0667A /* PhotoLibraryViewController.xib */,
+				E88CF4B01CEEF80E00D0667A /* PhotoLookViewController.h */,
+				E88CF4B11CEEF80E00D0667A /* PhotoLookViewController.m */,
+				E88CF4B21CEEF80E00D0667A /* PhotoLookViewController.xib */,
+				E88CF4B31CEEF80E00D0667A /* SelectedCollectionViewCell.h */,
+				E88CF4B41CEEF80E00D0667A /* SelectedCollectionViewCell.m */,
+				E88CF4B51CEEF80E00D0667A /* SelectedCollectionViewCell.xib */,
+			);
+			path = PhotoLibray;
+			sourceTree = "<group>";
+		};
 		E8DC64121CED964F00AE12EA = {
 			isa = PBXGroup;
 			children = (
@@ -82,24 +108,11 @@
 		E8DC641D1CED964F00AE12EA /* PhotoLibraryDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E88CF4A51CEEF80E00D0667A /* PhotoLibray */,
 				E8DC64211CED964F00AE12EA /* AppDelegate.h */,
 				E8DC64221CED964F00AE12EA /* AppDelegate.m */,
 				E8DC64241CED964F00AE12EA /* ViewController.h */,
 				E8DC64251CED964F00AE12EA /* ViewController.m */,
-				E8DC643F1CEDB07900AE12EA /* unSelected@3x.png */,
-				E8DC64411CEDB08500AE12EA /* selected@3x.png */,
-				E8DC64351CED967500AE12EA /* PhotoLibraryViewController.h */,
-				E8DC64361CED967500AE12EA /* PhotoLibraryViewController.m */,
-				E8DC64371CED967500AE12EA /* PhotoLibraryViewController.xib */,
-				E8DC643A1CED97DF00AE12EA /* PhotoLibarayCollectionViewCell.h */,
-				E8DC643B1CED97DF00AE12EA /* PhotoLibarayCollectionViewCell.m */,
-				E8DC643C1CED97DF00AE12EA /* PhotoLibarayCollectionViewCell.xib */,
-				E8DC64431CEDB36900AE12EA /* PhotoLookViewController.h */,
-				E8DC64441CEDB36900AE12EA /* PhotoLookViewController.m */,
-				E8DC64451CEDB36900AE12EA /* PhotoLookViewController.xib */,
-				E8DC64481CEDBF5100AE12EA /* SelectedCollectionViewCell.h */,
-				E8DC64491CEDBF5100AE12EA /* SelectedCollectionViewCell.m */,
-				E8DC644A1CEDBF5100AE12EA /* SelectedCollectionViewCell.xib */,
 				E8DC64271CED964F00AE12EA /* Main.storyboard */,
 				E8DC642A1CED964F00AE12EA /* Assets.xcassets */,
 				E8DC642C1CED964F00AE12EA /* LaunchScreen.storyboard */,
@@ -174,14 +187,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8DC64401CEDB07900AE12EA /* unSelected@3x.png in Resources */,
-				E8DC643E1CED97DF00AE12EA /* PhotoLibarayCollectionViewCell.xib in Resources */,
-				E8DC64471CEDB36900AE12EA /* PhotoLookViewController.xib in Resources */,
-				E8DC64421CEDB08500AE12EA /* selected@3x.png in Resources */,
+				E88CF4C01CEEF80E00D0667A /* SelectedCollectionViewCell.xib in Resources */,
+				E88CF4B81CEEF80E00D0667A /* IconAssets.xcassets in Resources */,
 				E8DC642E1CED964F00AE12EA /* LaunchScreen.storyboard in Resources */,
-				E8DC64391CED967500AE12EA /* PhotoLibraryViewController.xib in Resources */,
-				E8DC644C1CEDBF5100AE12EA /* SelectedCollectionViewCell.xib in Resources */,
 				E8DC642B1CED964F00AE12EA /* Assets.xcassets in Resources */,
+				E88CF4B71CEEF80E00D0667A /* AssetsGroupMenu.xib in Resources */,
+				E88CF4BE1CEEF80E00D0667A /* PhotoLookViewController.xib in Resources */,
+				E88CF4BC1CEEF80E00D0667A /* PhotoLibraryViewController.xib in Resources */,
+				E88CF4BA1CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.xib in Resources */,
 				E8DC64291CED964F00AE12EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,12 +206,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8DC643D1CED97DF00AE12EA /* PhotoLibarayCollectionViewCell.m in Sources */,
+				E88CF4B61CEEF80E00D0667A /* AssetsGroupMenu.m in Sources */,
+				E88CF4BF1CEEF80E00D0667A /* SelectedCollectionViewCell.m in Sources */,
+				E88CF4BD1CEEF80E00D0667A /* PhotoLookViewController.m in Sources */,
 				E8DC64261CED964F00AE12EA /* ViewController.m in Sources */,
-				E8DC64381CED967500AE12EA /* PhotoLibraryViewController.m in Sources */,
 				E8DC64231CED964F00AE12EA /* AppDelegate.m in Sources */,
-				E8DC64461CEDB36900AE12EA /* PhotoLookViewController.m in Sources */,
-				E8DC644B1CEDBF5100AE12EA /* SelectedCollectionViewCell.m in Sources */,
+				E88CF4BB1CEEF80E00D0667A /* PhotoLibraryViewController.m in Sources */,
+				E88CF4B91CEEF80E00D0667A /* PhotoLibarayCollectionViewCell.m in Sources */,
 				E8DC64201CED964F00AE12EA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +328,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PhotoLibraryDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.buluo.PhotoLibraryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -325,6 +340,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PhotoLibraryDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.buluo.PhotoLibraryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,6 +366,7 @@
 				E8DC64341CED964F00AE12EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoLibraryViewController">
             <connections>
                 <outlet property="downCollectionView" destination="QmN-EU-sWX" id="wkx-fS-PO9"/>
+                <outlet property="finishButton" destination="IqH-Lq-WqV" id="K7X-cf-GpS"/>
                 <outlet property="upperCollectionView" destination="TyA-6S-cQ0" id="ukb-Cl-QW9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,7 +20,7 @@
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TyA-6S-cQ0">
                     <rect key="frame" x="0.0" y="64" width="375" height="547"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iNd-6X-RdR">
                         <size key="itemSize" width="110" height="110"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -35,15 +36,22 @@
                     <rect key="frame" x="0.0" y="611" width="375" height="56"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqH-Lq-WqV">
-                            <rect key="frame" x="321" y="13" width="46" height="30"/>
+                            <rect key="frame" x="304" y="13" width="66" height="30"/>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="46" id="7Sg-bV-PmU"/>
+                                <constraint firstAttribute="width" constant="66" id="7Sg-bV-PmU"/>
                                 <constraint firstAttribute="height" constant="30" id="Dgv-1U-V8T"/>
                             </constraints>
-                            <state key="normal" title="完成"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="完成">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="finishButtonAction:" destination="-1" eventType="touchUpInside" id="va4-ru-FNi"/>
+                            </connections>
                         </button>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QmN-EU-sWX">
-                            <rect key="frame" x="0.0" y="0.0" width="322" height="56"/>
+                            <rect key="frame" x="0.0" y="0.0" width="299" height="56"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f7p-st-P0F">
                                 <size key="itemSize" width="50" height="50"/>
@@ -56,15 +64,25 @@
                                 <outlet property="delegate" destination="-1" id="7n8-td-w8D"/>
                             </connections>
                         </collectionView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zi8-HC-TCX">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="oqg-Vr-IKw"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="QmN-EU-sWX" firstAttribute="leading" secondItem="14R-rm-hhP" secondAttribute="leading" id="5qw-X7-6MB"/>
-                        <constraint firstAttribute="trailing" secondItem="QmN-EU-sWX" secondAttribute="trailing" constant="53" id="Hym-gF-28H"/>
+                        <constraint firstItem="zi8-HC-TCX" firstAttribute="leading" secondItem="14R-rm-hhP" secondAttribute="leading" id="BfD-94-AAy"/>
+                        <constraint firstAttribute="trailing" secondItem="QmN-EU-sWX" secondAttribute="trailing" constant="76" id="Hym-gF-28H"/>
+                        <constraint firstAttribute="trailing" secondItem="zi8-HC-TCX" secondAttribute="trailing" id="KJ4-5y-bQ2"/>
                         <constraint firstItem="QmN-EU-sWX" firstAttribute="top" secondItem="14R-rm-hhP" secondAttribute="top" id="ap0-hz-iue"/>
-                        <constraint firstAttribute="trailing" secondItem="IqH-Lq-WqV" secondAttribute="trailing" constant="8" id="b2c-IF-6aW"/>
+                        <constraint firstAttribute="trailing" secondItem="IqH-Lq-WqV" secondAttribute="trailing" constant="5" id="b2c-IF-6aW"/>
                         <constraint firstAttribute="height" constant="56" id="bEr-45-pVk"/>
                         <constraint firstItem="IqH-Lq-WqV" firstAttribute="centerY" secondItem="14R-rm-hhP" secondAttribute="centerY" id="gdA-sn-g8p"/>
+                        <constraint firstItem="zi8-HC-TCX" firstAttribute="top" secondItem="14R-rm-hhP" secondAttribute="top" id="k1I-tD-E9X"/>
                         <constraint firstAttribute="bottom" secondItem="QmN-EU-sWX" secondAttribute="bottom" id="tsX-82-VUE"/>
                     </constraints>
                 </view>
