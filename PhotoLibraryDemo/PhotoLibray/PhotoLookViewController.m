@@ -6,6 +6,16 @@
 //  Copyright © 2016年 张齐朴. All rights reserved.
 //
 
+/*
+ assets 包含camera
+ 方式一 进入前移除 退出后添加
+ 
+ 方式二 不移除 计算好index
+    a) 进入移动到指定图片
+    b) 滚动时候
+    b) 选中当前
+ */
+
 #import "PhotoLookViewController.h"
 #import "SelectedCollectionViewCell.h"
 
@@ -51,7 +61,7 @@
     _scrollView.pagingEnabled = YES;
     _scrollView.backgroundColor = [UIColor blackColor];
     
-    for (int i = 1; i < _assets.count; i++) {
+    for (int i = 0; i < _assets.count; i++) {
         UIImageView *imgV = [UIImageView new];
         ALAsset *asset = _assets[i];
         ALAssetRepresentation *representation = [asset defaultRepresentation];

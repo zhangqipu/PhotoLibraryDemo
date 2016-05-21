@@ -58,6 +58,11 @@ UINavigationControllerDelegate>
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    if ([_assets count] > 0 && [_assets[0] isKindOfClass:[NSString class]] == NO) {
+        [_assets insertObject:@"iconCamera" atIndex:0];
+    }
+    
     [_upperCollectionView reloadData];
     [_downCollectionView reloadData];
     [_finishButton setTitle:[NSString stringWithFormat:@"完成(%lu)", (unsigned long)_selectedAssets.count] forState:UIControlStateNormal];
@@ -175,7 +180,8 @@ UINavigationControllerDelegate>
             *stop = YES;
             
             // 添加拍照collectionViewCell数据源
-            [_assets insertObject:@"iconCamera" atIndex:0];
+            if ([_assets[0] isKindOfClass:[NSString class]] == NO)
+                [_assets insertObject:@"iconCamera" atIndex:0];
             
             [_upperCollectionView reloadData];
             [_downCollectionView reloadData];
@@ -265,9 +271,10 @@ UINavigationControllerDelegate>
     }
     
     PhotoLookViewController *vc = [[PhotoLookViewController alloc] init];
+    [_assets removeObjectAtIndex:0];
     vc.assets = _assets;
     vc.selectedAssets = _selectedAssets;
-    vc.currentIndex = indexPath.row;
+    vc.currentIndex = indexPath.row - 1;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
